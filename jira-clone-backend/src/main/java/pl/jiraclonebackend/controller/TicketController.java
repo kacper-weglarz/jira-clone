@@ -56,7 +56,7 @@ public class TicketController {
         return ticketService.findTicketsByCreatedAfter(date, pageable);
     }
 
-    @GetMapping("/createdBetween")
+    @GetMapping("/created-between")
     public Page<Ticket> findTicketsByCreatedBetween(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
                                                     @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end,
                                                     Pageable pageable) {

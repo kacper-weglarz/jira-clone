@@ -1,12 +1,15 @@
 package pl.jiraclonebackend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.jiraclonebackend.entity.User;
 import pl.jiraclonebackend.repository.UserRepository;
+import pl.jiraclonebackend.util.Role;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Service
 public class UserService {
@@ -33,18 +36,32 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("User with id " + id + " not found"));
     }
 
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    public Page<User> getAllUsers(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
+
+    public Page<User> getUsersByRole(Role role, Pageable pageable) {
+        return userRepository.findAllByRole(role, pageable);
+    }
+
+    public Page<User> getUsersByCreatedAtAfter(LocalDateTime createdAt, Pageable pageable) {
+        return userRepository.findUsersByCreatedAtAfter(createdAt, pageable);
+    }
+
 
     @Transactional
     public User updateUser(User user) {
-        long idUserToUpdate = user.getId();
+        Long idUserToUpdate = user.getId();
+        if (user.getId() == null || user.getId() <=0) {
+            throw new RuntimeException("User with id " + idUserToUpdate + " not found");
+        }
         User userToUpdate = findUserById(idUserToUpdate);
 
         userToUpdate.setFirstName(user.getFirstName());
         userToUpdate.setLastName(user.getLastName());
+        userToUpdate.setPassword(user.getPassword());
         userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setRole(user.getRole());
 
         return userRepository.save(userToUpdate);
     }
