@@ -23,5 +23,5 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private List<Ticket> ticket;
+    private List<Ticket> tickets;
 }
