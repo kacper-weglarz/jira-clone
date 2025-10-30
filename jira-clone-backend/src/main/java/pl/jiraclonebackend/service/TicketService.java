@@ -46,11 +46,11 @@ public class TicketService {
     }
 
     public Page<Ticket> findTicketsByUser(Long userId, Pageable pageable) {
-        return ticketRepository.findByUser(userId, pageable);
+        return ticketRepository.findByAssignedTo(userId, pageable);
     }
 
     public Page<Ticket> findTicketsByCreatedAfter(LocalDateTime createdAfter, Pageable pageable) {
-        return ticketRepository.findByCreatedAfter(createdAfter, pageable);
+        return ticketRepository.findByCreatedAtAfter(createdAfter, pageable);
     }
 
     public Page<Ticket> findByCreatedAtBetween(LocalDateTime start, LocalDateTime end, Pageable pageable) {
@@ -67,10 +67,25 @@ public class TicketService {
 
         Ticket ticketToUpdate = findTicketById(idTicketToUpdate);
 
-        ticketToUpdate.setTitle(ticket.getTitle());
-        ticketToUpdate.setDescription(ticket.getDescription());
-        ticketToUpdate.setStatus(ticket.getStatus());
-        ticketToUpdate.setPriority(ticket.getPriority());
+        if (ticket.getTitle() != null) {
+            ticketToUpdate.setTitle(ticket.getTitle());
+        }
+
+        if (ticket.getDescription() != null) {
+            ticketToUpdate.setDescription(ticket.getDescription());
+        }
+
+        if (ticket.getStatus() != null) {
+            ticketToUpdate.setStatus(ticket.getStatus());
+        }
+
+        if (ticket.getPriority() != null) {
+            ticketToUpdate.setPriority(ticket.getPriority());
+        }
+
+        if (ticket.getAssignedTo() != null) {
+            ticketToUpdate.setAssignedTo(ticket.getAssignedTo());
+        }
 
         return ticketRepository.save(ticketToUpdate);
     }

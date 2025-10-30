@@ -17,9 +17,9 @@ public interface TicketRepository extends JpaRepository<Ticket,Long>{
 
     public Page<Ticket> findByStatus(Status status, Pageable pageable);
 
-    public Page<Ticket> findByUser(Long userId, Pageable pageable);
+    public Page<Ticket> findByAssignedTo(Long userId, Pageable pageable);
 
-    public Page<Ticket> findByCreatedAfter(LocalDateTime createdAfter, Pageable pageable);
+    public Page<Ticket> findByCreatedAtAfter(LocalDateTime createdAfter, Pageable pageable);
 
     public Page<Ticket> findByCreatedAtBetween(LocalDateTime start, LocalDateTime end, Pageable pageable);
 }

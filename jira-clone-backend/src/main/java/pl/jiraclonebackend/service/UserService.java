@@ -55,13 +55,27 @@ public class UserService {
         if (user.getId() == null || user.getId() <=0) {
             throw new RuntimeException("User with id " + idUserToUpdate + " not found");
         }
-        User userToUpdate = findUserById(idUserToUpdate);
+        User userToUpdate = findUserById(user.getId());
 
-        userToUpdate.setFirstName(user.getFirstName());
-        userToUpdate.setLastName(user.getLastName());
-        userToUpdate.setPassword(user.getPassword());
-        userToUpdate.setEmail(user.getEmail());
-        userToUpdate.setRole(user.getRole());
+        if (user.getFirstName() != null) {
+            userToUpdate.setFirstName(user.getFirstName());
+        }
+
+        if (user.getLastName() != null) {
+            userToUpdate.setLastName(user.getLastName());
+        }
+
+        if (user.getEmail() != null) {
+            userToUpdate.setEmail(user.getEmail());
+        }
+
+        if (user.getPassword() != null) {
+            userToUpdate.setPassword(user.getPassword());
+        }
+
+        if (user.getRole() != null) {
+            userToUpdate.setRole(user.getRole());
+        }
 
         return userRepository.save(userToUpdate);
     }
