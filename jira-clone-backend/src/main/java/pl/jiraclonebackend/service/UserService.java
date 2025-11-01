@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.jiraclonebackend.entity.User;
 import pl.jiraclonebackend.repository.UserRepository;
-import pl.jiraclonebackend.util.Role;
 
 import java.time.LocalDateTime;
 
@@ -40,9 +39,6 @@ public class UserService {
         return userRepository.findAll(pageable);
     }
 
-    public Page<User> getUsersByRole(Role role, Pageable pageable) {
-        return userRepository.findAllByRole(role, pageable);
-    }
 
     public Page<User> getUsersByCreatedAtAfter(LocalDateTime createdAt, Pageable pageable) {
         return userRepository.findUsersByCreatedAtAfter(createdAt, pageable);
@@ -67,14 +63,6 @@ public class UserService {
 
         if (user.getEmail() != null) {
             userToUpdate.setEmail(user.getEmail());
-        }
-
-        if (user.getPassword() != null) {
-            userToUpdate.setPassword(user.getPassword());
-        }
-
-        if (user.getRole() != null) {
-            userToUpdate.setRole(user.getRole());
         }
 
         return userRepository.save(userToUpdate);

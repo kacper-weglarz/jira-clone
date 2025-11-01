@@ -8,7 +8,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import pl.jiraclonebackend.entity.User;
 import pl.jiraclonebackend.service.UserService;
-import pl.jiraclonebackend.util.Role;
 
 import java.time.LocalDateTime;
 
@@ -39,10 +38,6 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-    @GetMapping("/role/{role}")
-    public Page<User> getUsersByRole(@PathVariable Role role, Pageable pageable) {
-        return userService.getUsersByRole(role ,pageable);
-    }
 
     @GetMapping("/created-after")
     public Page<User> getUsersByCreatedAfter(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
