@@ -1,4 +1,4 @@
-package pl.jiraclonebackend.controller;
+package pl.simpleticketsystem.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,10 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-import pl.jiraclonebackend.entity.Ticket;
-import pl.jiraclonebackend.entity.User;
-import pl.jiraclonebackend.service.TicketService;
-import pl.jiraclonebackend.util.Status;
+import pl.simpleticketsystem.entity.Ticket;
+import pl.simpleticketsystem.service.TicketService;
+import pl.simpleticketsystem.util.Status;
 
 import java.time.LocalDateTime;
 

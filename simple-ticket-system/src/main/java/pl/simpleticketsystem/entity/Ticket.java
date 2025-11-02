@@ -1,12 +1,12 @@
-package pl.jiraclonebackend.entity;
+package pl.simpleticketsystem.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import pl.jiraclonebackend.util.Priority;
-import pl.jiraclonebackend.util.Status;
+import pl.simpleticketsystem.util.Priority;
+import pl.simpleticketsystem.util.Status;
 import java.time.LocalDateTime;
 
 @Getter

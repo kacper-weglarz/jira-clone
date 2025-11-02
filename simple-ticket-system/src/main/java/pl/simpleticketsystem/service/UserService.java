@@ -1,12 +1,12 @@
-package pl.jiraclonebackend.service;
+package pl.simpleticketsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.jiraclonebackend.entity.User;
-import pl.jiraclonebackend.repository.UserRepository;
+import pl.simpleticketsystem.entity.User;
+import pl.simpleticketsystem.repository.UserRepository;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package pl.jiraclonebackend.util;
+package pl.simpleticketsystem.util;
 
 import lombok.Getter;
 

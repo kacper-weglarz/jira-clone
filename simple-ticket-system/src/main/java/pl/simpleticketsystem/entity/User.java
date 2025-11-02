@@ -1,4 +1,4 @@
-package pl.jiraclonebackend.entity;
+package pl.simpleticketsystem.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

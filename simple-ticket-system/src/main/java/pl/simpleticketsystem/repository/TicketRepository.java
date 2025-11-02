@@ -1,11 +1,11 @@
-package pl.jiraclonebackend.repository;
+package pl.simpleticketsystem.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.jiraclonebackend.util.Status;
-import pl.jiraclonebackend.entity.Ticket;
+import pl.simpleticketsystem.util.Status;
+import pl.simpleticketsystem.entity.Ticket;
 import java.time.LocalDateTime;
 
 

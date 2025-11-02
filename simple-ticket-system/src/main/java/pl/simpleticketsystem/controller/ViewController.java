@@ -1,15 +1,15 @@
-package pl.jiraclonebackend.controller;
+package pl.simpleticketsystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.jiraclonebackend.entity.Ticket;
-import pl.jiraclonebackend.entity.User;
-import pl.jiraclonebackend.service.TicketService;
-import pl.jiraclonebackend.service.UserService;
-import pl.jiraclonebackend.util.Priority;
+import pl.simpleticketsystem.entity.Ticket;
+import pl.simpleticketsystem.entity.User;
+import pl.simpleticketsystem.service.TicketService;
+import pl.simpleticketsystem.service.UserService;
+import pl.simpleticketsystem.util.Priority;
 
 @Controller
 public class ViewController {

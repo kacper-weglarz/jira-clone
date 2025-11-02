@@ -1,15 +1,13 @@
-package pl.jiraclonebackend.service;
+package pl.simpleticketsystem.service;
 
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.jiraclonebackend.entity.User;
-import pl.jiraclonebackend.util.Status;
-import pl.jiraclonebackend.entity.Ticket;
-import pl.jiraclonebackend.repository.TicketRepository;
+import pl.simpleticketsystem.util.Status;
+import pl.simpleticketsystem.entity.Ticket;
+import pl.simpleticketsystem.repository.TicketRepository;
 import java.time.LocalDateTime;
 
 @Service
