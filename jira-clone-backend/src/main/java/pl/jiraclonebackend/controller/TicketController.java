@@ -13,7 +13,6 @@ import pl.jiraclonebackend.util.Status;
 
 import java.time.LocalDateTime;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <h1>Tickets</h1>
+    <a th:href="@{/add-ticket}">Create new ticket</a>
+    <table>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Assigned to</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Created at</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="ticket : ${tickets}">
+            <td th:text="${ticket.id}"></td>
+            <td th:text="${ticket.title}"></td>
+            <td th:text="${ticket.description}"></td>
+            <td th:text="${ticket.assignedTo?.email}"></td>
+            <td th:text="${ticket.status}"></td>
+            <td>
+                <span th:class="'priority-' + ${ticket.priority.name().toLowerCase()}"
+                      th:text="${ticket.priority}">
+                </span>
+            </td>
+            <td th:text="${#temporals.format(ticket.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
+            <td>
+                <a th:href="@{/edit-ticket/{id}(id=${ticket.id})}" class="btn-edit">Edit</a>
+                <a th:href="@{/delete-ticket/{id}(id=${ticket.id})}" class="btn-delete">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

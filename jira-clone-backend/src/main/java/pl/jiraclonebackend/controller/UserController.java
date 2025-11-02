@@ -11,7 +11,6 @@ import pl.jiraclonebackend.service.UserService;
 
 import java.time.LocalDateTime;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
 public class UserController {

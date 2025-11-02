@@ -39,6 +39,23 @@ public class UserService {
         return userRepository.findAll(pageable);
     }
 
+    @Transactional
+    public User findOrCreateUser(String firstName, String lastName, String email) {
+
+        User existingUser = userRepository.findByEmail(email);
+
+        if (existingUser != null) {
+            return existingUser;
+        }
+
+        User newUser = new User();
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setEmail(email);
+
+        return userRepository.save(newUser);
+    }
+
 
     public Page<User> getUsersByCreatedAtAfter(LocalDateTime createdAt, Pageable pageable) {
         return userRepository.findUsersByCreatedAtAfter(createdAt, pageable);

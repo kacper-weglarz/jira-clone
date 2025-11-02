@@ -13,4 +13,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     public Page<User> findUsersByCreatedAtAfter(LocalDateTime createdAtAfter, Pageable pageable);
 
+    public User findByEmail(String email);
 }
