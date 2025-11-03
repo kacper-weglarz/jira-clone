@@ -51,6 +51,8 @@ Spring Boot Application <br>
 | **Build** | Maven |
 | **Utilities** | Lombok, Jakarta Validation |
 
+---
+
 ## ⚠️ Known Limitations
 
 - No user authentication/authorization (everyone can access everything)
